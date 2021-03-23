@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #9C27B0;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Loan Calculator</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -43,601 +43,142 @@
         </div>
     </nav>
 
-    <nav>
-        <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
-            <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
-                type="button" role="tab" aria-controls="nav-home" aria-selected="true">Applicant</button>
-            <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
-                type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Co-maker</button>
-
-        </div>
-    </nav>
-    <div class="tab-content" id="nav-tabContent">
-        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-            <div class="container-fluid" style="margin-left: 4%;">
-                <div class="row mt-5">
-                    <div class="col-md-12">
-                        <div class="row g-3 align-items-center">
-                            <div class="col-3">
-                                <label for="inputPassword6" class="col-form-label">MSDS Loan Calculator</label>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <span class="input-group-text">$</span>
-                                    <input type="number" class="form-control text-center"
-                                        aria-label="Amount (to the nearest dollar)" value="29900">
-                                    <span class="input-group-text">.00</span>
-                                </div>
-                                <!-- <input type="text" id="inputPassword6" class="form-control text-center" value="USD 29,900.00"> -->
-                            </div>
-
-                        </div>
-                        <div class="row g-3 align-items-center">
-                            <div class="col-3">
-                                <label for="inputPassword6" class="col-form-label">Program Duration</label>
-                            </div>
-                            <div class="col-2">
-                                <input type="text" id="inputPassword6" class="form-control text-center" value="15 mos">
-                            </div>
-
-                        </div>
-                        <div class="row g-3 align-items-center pt-2">
-                            <div class="col-3">
-                                <label for="inputPassword6" class="col-form-label">Repayment Term</label>
-                            </div>
-                            <div class="col-2">
-                                <input type="text" id="inputPassword6" class="form-control text-center"
-                                    value="36 or 60 mos">
-                            </div>
-
-                        </div>
-                        <div class="row g-3 align-items-center pt-2">
-                            <div class="col-3">
-                                <label for="inputPassword6" class="col-form-label">Grace Period</label>
-                            </div>
-                            <div class="col-2">
-                                <input type="text" id="inputPassword6" class="form-control text-center" value="21 mos">
-                            </div>
-
-                        </div>
-                        <div class="row g-3 align-items-center pt-2">
-                            <div class="col-3">
-                                <label for="inputPassword6" class="col-form-label">Indicative Interest Rate (%
-                                    p.a.)</label>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <input type="number" class="form-control text-end" value="0">
-                                    <span class="input-group-text">%</span>
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="row g-3 align-items-center pt-2">
-                            <div class="col-3">
-                                <label for="inputPassword6" class="col-form-label">Indicative PHP-USD Exchange
-                                    Rate</label>
-                            </div>
-                            <div class="col-2">
-                                <input type="number" id="exchange" class="form-control text-end" value="49">
-                            </div>
-
-                        </div>
-                        <div class="row g-3 align-items-center pt-2">
-                            <div class="col-3">
-                                <label for="inputPassword6" class="col-form-label">Current gross monthly salary</label>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <span class="input-group-text">Php</span>
-                                    <input type="number" id="gross" class="form-control text-end" onchange="loan()">
-
-                                </div>
-
-                            </div>
-                            <div class="col-auto">
-                                <span id="passwordHelpInline" class="form-text">
-                                    Note: For MSDS, the default salary for borrowers who have a salary
-                                </span>
-                            </div>
-                        </div>
-                        <div class="row g-3 align-items-center pt-2">
-                            <div class="col-3">
-                                <label for="inputPassword6" class="col-form-label">Salary growth multiple</label>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <input type="number" id="salary" class="form-control text-end" value="200">
-                                    <span class="input-group-text">%</span>
-                                </div>
-
-                            </div>
-                            <div class="col-auto">
-                                <span id="passwordHelpInline" class="form-text">
-                                    from Php29,999 and below (including fresh graduates with no work) is Php30,000
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="row g-3 align-items-center pt-2">
-                            <div class="col-3">
-                                <label for="inputPassword6" class="col-form-label">Debt-cover ratio</label>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <input type="number" id="debt" class="form-control text-end" value="30">
-                                    <span class="input-group-text">%</span>
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="row g-3 align-items-center pt-2">
-                            <div class="col-3">
-                                <label for="inputPassword6" class="col-form-label">Monthly loan amortization
-                                    allocation</label>
-                            </div>
-                            <div class="col-2">
-                                <input type="number" id="monthly" class="form-control text-end" value="0">
-                            </div>
-
-                        </div>
-                        <div class="row g-3 align-items-center pt-2">
-                            <div class="col-3">
-                                <label for="inputPassword6" class="col-form-label">Less: Monthly amortization of
-                                    existing loans,
-                                    if any</label>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <span class="input-group-text">Php</span>
-                                    <input type="number" id="lessMonth" class="form-control text-end"
-                                        onchange="maxLoan()">
-
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="row g-3 align-items-center pt-2">
-                            <div class="col-3">
-                                <label for="inputPassword6" class="col-form-label"> Maximum student loan
-                                    amortization</label>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <span class="input-group-text">Php</span>
-                                    <input type="number" id="maximum" class="form-control  text-end">
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-                    </div>
-                </div>
-                <div class="row mt-4">
-                    <div class="offset-md-4 col-md-2">
-                        <h4 class="loan">Loanable Amount 0%</h4>
-                    </div>
-                    <div class="offset-md-1 col-md-2">
-                        <h4 class="loan">Monthly Amortization</h4>
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="offset-md-2 col-md-1">
-                        <h4>Term</h4>
-                    </div>
-                    <div class="col-md-2">
-                        <h4 class="text-center">In PHP</h4>
-                    </div>
-                    <div class="col-md-1">
-                        <h4>In USD</h4>
-                    </div>
-                    <div class="col-md-1">
-                        <h4 class="text-end">0%</h4>
-                    </div>
-                    <div class="col-md-2">
-                        <h4 class="text-end">Commercial</h4>
-                    </div>
-                    <div class="col-md-2">
-                        <h5 class="text-end">Waived Interest</h5>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-2">
-                            <p>Loanable Amount: 36 months amortization</p>
-                        </div>
-                        <div class="col-md-1">
-                            <input type="text" class="form-control text-end" id='term36' value=36>
-                        </div>
-                        <div class="col-md-auto">
-                            <div class="input-group">
-                                <span class="input-group-text">Php</span>
-                                <input type="text" class="form-control text-end" id='php36'>
-
-                            </div>
-
-                        </div>
-                        <div class="col-md-auto">
-                            <div class="input-group">
-                                <span class="input-group-text">$</span>
-                                <input type="text" class="form-control text-end" id='usd36'>
-
-                            </div>
-
-                        </div>
-                        <div class="col-md-auto">
-                            <div class="input-group">
-                                <span class="input-group-text">Php</span>
-                                <input type="text" class="form-control text-end" id='zero36'>
-
-                            </div>
-
-                        </div>
-                        <div class="col-md-auto">
-                            <div class="input-group">
-                                <span class="input-group-text">Php</span>
-                                <input type="text" class="form-control text-end" id='com36'>
-
-                            </div>
-
-                        </div>
-                        <div class="col-md-auto">
-                            <div class="input-group">
-                                <span class="input-group-text">Php</span>
-                                <input type="text" class="form-control text-end" id='wav36'>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="row mt-2">
-                        <div class="col-md-2">
-                            <p>Loanable Amount: 60 months amortization</p>
-                        </div>
-                        <div class="col-md-1">
-                            <input type="text" class="form-control text-end" id='term60' value=60>
-                        </div>
-                        <div class="col-md-auto">
-                            <div class="input-group">
-                                <span class="input-group-text">Php</span>
-                                <input type="text" class="form-control text-end" id='php60'>
-                            </div>
-
-                        </div>
-                        <div class="col-md-auto">
-                            <div class="input-group">
-                                <span class="input-group-text">$</span>
-                                <input type="text" class="form-control text-end" id='usd60'>
-                            </div>
-
-                        </div>
-                        <div class="col-md-auto">
-                            <div class="input-group">
-                                <span class="input-group-text">Php</span>
-                                <input type="text" class="form-control text-end" id='zero60'>
-                            </div>
-
-                        </div>
-                        <div class="col-md-auto">
-                            <div class="input-group">
-                                <span class="input-group-text">Php</span>
-                                <input type="text" class="form-control text-end" id='com60'>
-                            </div>
-
-                        </div>
-                        <div class="col-md-auto">
-                            <div class="input-group">
-                                <span class="input-group-text">Php</span>
-                                <input type="text" class="form-control text-end" id='wav60'>
-                            </div>
-
-                        </div>
-                    </div>
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-sm-12 col-md-3">
+                <span class="label-input100">Program Fee</span>
+                <div class="wrap-input100">
+                    <span >$</span>
+                    <input class="input100" type="number" name="name" value="29900.00" readonly>
                 </div>
             </div>
-            <div style="margin-left: 4%;" class="mt-3">
-                <h5>Note:</h5>
-                <h5>All rates are indicative and are subject to change.</h5>
-                <h5>Approval is subject to the submission of relevant proof of income, among others.</h5>
-                <h5>Approval is subject to the evaluation of the AIM Student Loans Committee</h5>
-                <h5>A co-maker of equal or greater annual income is required</h5>
+            <div class="col-sm-12 col-md-3">
+                <span class="label-input100">Indicative Interest Rate (% p.a.)</span>
+                <div class="wrap-input100">
+                    <input class="input100" type="number" name="name" value="0" readonly>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-3">
+                <span class="label-input100">Program Duration</span>
+                <div class="wrap-input100">
+                    <input class="input100" type="text" name="name" value="15 Months" readonly>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-3">
+                <span class="label-input100">Indicative PHP-USD Exchange Rate</span>
+                <div class="wrap-input100">
+                    <input class="input100" type="number" id="exchange" value="49" readonly>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-3">
+                <span class="label-input100">Repayment Term</span>
+                <div class="wrap-input100">
+                    <input class="input100" type="text" name="name" value="36 or 60 Months" readonly>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-3">
+                <span class="label-input100">Salary growth multiple</span>
+                <div class="wrap-input100">
+                    <input class="input100" type="number" id="salary" value="200" readonly>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-3">
+                <span class="label-input100">Grace Period</span>
+                <div class="wrap-input100">
+                    <input class="input100" type="text" name="name" value="21 Months" readonly>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-3">
+                <span class="label-input100">Debt Cover ratio</span>
+                <div class="wrap-input100">
+                    <input class="input100" type="number" id="debt" value="30" readonly>
+                </div>
+            </div>
+        </div>
+       
+        <div class="row mt-4">
+            <div class="col-sm-12 col-md-3">
+                <span class="label-input100s">Current Gross Monthly Salary</span>
+                <div class="wrap-input100">
+                    <span >PHP</span>
+                    <input class="input100s" type="number" name="name"  id="gross"  onchange="loan()">
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <span class="label-input100s">Less: Monthly amortization of existing loans, if any</span>
+                <div class="wrap-input100">
+                    <span >PHP</span>
+                    <input class="input100s" type="number" name="name" id="lessMonth"  onchange="maxLoan()">
+                </div>
             </div>
         </div>
      
-
-        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-            <div class="container-fluid" style="margin-left: 4%;">
-                <div class="row mt-5">
-                    <div class="col-md-12">
-                        <div class="row g-3 align-items-center">
-                            <div class="col-3">
-                                <label for="inputPassword6" class="col-form-label">MSDS Loan Calculator</label>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <span class="input-group-text">$</span>
-                                    <input type="number" class="form-control text-center"
-                                        aria-label="Amount (to the nearest dollar)" value="29900">
-                                    <span class="input-group-text">.00</span>
-                                </div>
-                                <!-- <input type="text" id="inputPassword6" class="form-control text-center" value="USD 29,900.00"> -->
-                            </div>
-
-                        </div>
-                        <div class="row g-3 align-items-center">
-                            <div class="col-3">
-                                <label for="inputPassword6" class="col-form-label">Program Duration</label>
-                            </div>
-                            <div class="col-2">
-                                <input type="text" id="inputPassword6" class="form-control text-center" value="15 mos">
-                            </div>
-
-                        </div>
-                        <div class="row g-3 align-items-center pt-2">
-                            <div class="col-3">
-                                <label for="inputPassword6" class="col-form-label">Repayment Term</label>
-                            </div>
-                            <div class="col-2">
-                                <input type="text" id="inputPassword6" class="form-control text-center"
-                                    value="36 or 60 mos">
-                            </div>
-
-                        </div>
-                        <div class="row g-3 align-items-center pt-2">
-                            <div class="col-3">
-                                <label for="inputPassword6" class="col-form-label">Grace Period</label>
-                            </div>
-                            <div class="col-2">
-                                <input type="text" id="inputPassword6" class="form-control text-center" value="21 mos">
-                            </div>
-
-                        </div>
-                        <div class="row g-3 align-items-center pt-2">
-                            <div class="col-3">
-                                <label for="inputPassword6" class="col-form-label">Indicative Interest Rate (%
-                                    p.a.)</label>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <input type="number" class="form-control text-end" value="0">
-                                    <span class="input-group-text">%</span>
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="row g-3 align-items-center pt-2">
-                            <div class="col-3">
-                                <label for="inputPassword6" class="col-form-label">Indicative PHP-USD Exchange
-                                    Rate</label>
-                            </div>
-                            <div class="col-2">
-                                <input type="number" id="exchange" class="form-control text-end" value="49">
-                            </div>
-
-                        </div>
-                        <div class="row g-3 align-items-center pt-2">
-                            <div class="col-3">
-                                <label for="inputPassword6" class="col-form-label">Current gross monthly salary</label>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <span class="input-group-text">Php</span>
-                                    <input type="number" id="gross" class="form-control text-end" onchange="loan()">
-
-                                </div>
-
-                            </div>
-                        
-                        </div>
-                        <div class="row g-3 align-items-center pt-2">
-                            <div class="col-3">
-                                <label for="inputPassword6" class="col-form-label">Salary growth multiple</label>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <input type="number" id="salary" class="form-control text-end" value="100">
-                                    <span class="input-group-text">%</span>
-                                </div>
-
-                            </div>
-                      
-                        </div>
-
-                        <div class="row g-3 align-items-center pt-2">
-                            <div class="col-3">
-                                <label for="inputPassword6" class="col-form-label">Debt-cover ratio</label>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <input type="number" id="debt" class="form-control text-end" value="30">
-                                    <span class="input-group-text">%</span>
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="row g-3 align-items-center pt-2">
-                            <div class="col-3">
-                                <label for="inputPassword6" class="col-form-label">Monthly loan amortization
-                                    allocation</label>
-                            </div>
-                            <div class="col-2">
-                                <input type="number" id="monthly" class="form-control text-end" value="0">
-                            </div>
-
-                        </div>
-                        <div class="row g-3 align-items-center pt-2">
-                            <div class="col-3">
-                                <label for="inputPassword6" class="col-form-label">Less: Monthly amortization of
-                                    existing loans,
-                                    if any</label>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <span class="input-group-text">Php</span>
-                                    <input type="number" id="lessMonth" class="form-control text-end"
-                                        onchange="maxLoan()">
-
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="row g-3 align-items-center pt-2">
-                            <div class="col-3">
-                                <label for="inputPassword6" class="col-form-label"> Maximum student loan
-                                    amortization</label>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <span class="input-group-text">Php</span>
-                                    <input type="number" id="maximum" class="form-control  text-end">
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-                    </div>
-                </div>
-                <div class="row mt-4">
-                    <div class="offset-md-4 col-md-2">
-                        <h4 class="loan">Loanable Amount 0%</h4>
-                    </div>
-                    <div class="offset-md-1 col-md-2">
-                        <h4 class="loan">Monthly Amortization</h4>
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="offset-md-2 col-md-1">
-                        <h4>Term</h4>
-                    </div>
-                    <div class="col-md-2">
-                        <h4 class="text-center">In PHP</h4>
-                    </div>
-                    <div class="col-md-1">
-                        <h4>In USD</h4>
-                    </div>
-                    <div class="col-md-1">
-                        <h4 class="text-end">0%</h4>
-                    </div>
-                    <div class="col-md-2">
-                        <h4 class="text-end">Commercial</h4>
-                    </div>
-                    <div class="col-md-2">
-                        <h5 class="text-end">Waived Interest</h5>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-2">
-                            <p>Loanable Amount: 36 months amortization</p>
-                        </div>
-                        <div class="col-md-1">
-                            <input type="text" class="form-control text-end" id='term36' value=36>
-                        </div>
-                        <div class="col-md-auto">
-                            <div class="input-group">
-                                <span class="input-group-text">Php</span>
-                                <input type="text" class="form-control text-end" id='php36'>
-
-                            </div>
-
-                        </div>
-                        <div class="col-md-auto">
-                            <div class="input-group">
-                                <span class="input-group-text">$</span>
-                                <input type="text" class="form-control text-end" id='usd36'>
-
-                            </div>
-
-                        </div>
-                        <div class="col-md-auto">
-                            <div class="input-group">
-                                <span class="input-group-text">Php</span>
-                                <input type="text" class="form-control text-end" id='zero36'>
-
-                            </div>
-
-                        </div>
-                        <div class="col-md-auto">
-                            <div class="input-group">
-                                <span class="input-group-text">Php</span>
-                                <input type="text" class="form-control text-end" id='com36'>
-
-                            </div>
-
-                        </div>
-                        <div class="col-md-auto">
-                            <div class="input-group">
-                                <span class="input-group-text">Php</span>
-                                <input type="text" class="form-control text-end" id='wav36'>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="row mt-2">
-                        <div class="col-md-2">
-                            <p>Loanable Amount: 60 months amortization</p>
-                        </div>
-                        <div class="col-md-1">
-                            <input type="text" class="form-control text-end" id='term60' value=60>
-                        </div>
-                        <div class="col-md-auto">
-                            <div class="input-group">
-                                <span class="input-group-text">Php</span>
-                                <input type="text" class="form-control text-end" id='php60'>
-                            </div>
-
-                        </div>
-                        <div class="col-md-auto">
-                            <div class="input-group">
-                                <span class="input-group-text">$</span>
-                                <input type="text" class="form-control text-end" id='usd60'>
-                            </div>
-
-                        </div>
-                        <div class="col-md-auto">
-                            <div class="input-group">
-                                <span class="input-group-text">Php</span>
-                                <input type="text" class="form-control text-end" id='zero60'>
-                            </div>
-
-                        </div>
-                        <div class="col-md-auto">
-                            <div class="input-group">
-                                <span class="input-group-text">Php</span>
-                                <input type="text" class="form-control text-end" id='com60'>
-                            </div>
-
-                        </div>
-                        <div class="col-md-auto">
-                            <div class="input-group">
-                                <span class="input-group-text">Php</span>
-                                <input type="text" class="form-control text-end" id='wav60'>
-                            </div>
-
-                        </div>
-                    </div>
+        <div class="row mt-5">
+            <div class="col-sm-12">
+                <span class="label-input100">Monthly loan amortization allocation</span>
+                <div class="wrap-input100">
+                    <input class="input100" type="number" name="name"  id="monthly" readonly>
                 </div>
             </div>
-
         </div>
-        <div style="margin-left: 4%;" class="mt-3">
-            <h5>Note:</h5>
-            <h5>All rates are indicative and are subject to change.</h5>
-            <h5>Approval is subject to the submission of relevant proof of income, among others.</h5>
-            <h5>Approval is subject to the evaluation of the AIM Student Loans Committee</h5>
-            <h5>A co-maker of equal or greater annual income is required</h5>
+        <div class="row">
+            <div class="col-sm-12">
+                <span class="label-input100">Maximum student loan amortization</span>
+                <div class="wrap-input100">
+                    <input class="input100" type="number" name="name"  id="maximum" readonly>
+                </div>
+            </div>
+        </div>      
+    </div><!-- end of container -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-7">
+                <table>
+                    <thead>
+                        <th>Loan Term (months)</th>
+                        <th colspan="2">Loanable Amount</th>
+                        <th>Monthly Amortization(in PHP)</th>
+                    </thead>
+                    <th style="visibility: hidden;">Nothing</th>
+                    <th>In PHP</th>
+                    <th>In USD</th>
+                    <tbody>
+                        <tr>
+                            <td id='term36' >36</td>
+                            <td id='php36'>0</td>
+                            <td id='usd36'>0</td>
+                            <td class="text-center" id='zero36'>0</td>
+                        </tr>
+                        <tr>
+                            <td id='term60'>60</td>
+                            <td id='php60'>0</td>
+                            <td id='usd60'>0</td>
+                            <td class="text-center" id='zero60'>0</td>
+                        </tr>
+                 
+                    </tbody>
+                </table>
+            </div>
         </div>
 
+        <h6 class="mt-5">Note:</h6>
+        <h6>All rates are indicative and are subject to change.</h6>
+        <h6>Approval is subject to the submission of relevant proof of income, among others.</h6>
+        <h6>Approval is subject to the evaluation of the AIM Student Loans Committee</h6>
+        <h6>A co-maker of equal or greater annual income is required</h6>
     </div>
+   
+  
+      
 
-    </div>
+
 
 
 
@@ -657,12 +198,12 @@
             let compute = gross * salary * debt;
             document.getElementById('monthly').value = compute;
             document.getElementById('maximum').value = compute;
-            document.getElementById('zero36').value = compute;
-            document.getElementById('zero60').value = compute;
-            document.getElementById('php36').value = compute * 36;
-            document.getElementById('php60').value = compute * 60;
-            document.getElementById('usd36').value = ((compute * 36) / exchangeRate).toFixed(2);
-            document.getElementById('usd60').value = ((compute * 60) / exchangeRate).toFixed(2);
+            document.getElementById('zero36').innerHTML = compute;
+            document.getElementById('zero60').innerHTML = compute;
+            document.getElementById('php36').innerHTML = compute * 36;
+            document.getElementById('php60').innerHTML = compute * 60;
+            document.getElementById('usd36').innerHTML = ((compute * 36) / exchangeRate).toFixed(2);
+            document.getElementById('usd60').innerHTML = ((compute * 60) / exchangeRate).toFixed(2);
 
         }
 
@@ -675,6 +216,9 @@
             // 648000
             // 13224 usd
             //
+            // April 
+            //  + 18 months commercial
+            //  + 21 
     </script>
 </body>
 
